@@ -144,4 +144,22 @@ public class NumberTheoryUtil {
         return inverse;
     }
 
+
+
+    public static long getRandomPrime() {
+        int index = (int)(1000 * Math.random());
+        int count = 0;
+        long num = 2;
+        while ( true ) {
+            if ( isPrime( num ) ) {
+                ++count;
+                if ( count == index ) {
+                    return num;
+                }
+            }
+            ++num;
+        }
+    }
+
+
 }

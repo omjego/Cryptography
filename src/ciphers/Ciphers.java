@@ -1,4 +1,7 @@
-package utils;
+package ciphers;
+
+import utils.LinearAlgebraUtil;
+import utils.NumberTheoryUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +42,7 @@ public class Ciphers {
     private static String convertToRequiredForm(String msg ) {
 
         //Convert string to appropriate form
-        msg = Test.Ciphers.removeSpaces(msg);
+        msg = Ciphers.removeSpaces(msg);
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < msg.length(); i += 1) {
             char ch = msg.charAt(i);
@@ -173,9 +176,9 @@ public class Ciphers {
      */
     private static String playFairHelper(String msg, String key, int encrypt) {
 
-        key = Test.Ciphers.removeSpaces(key);
-        msg = Test.Ciphers.convertToRequiredForm( msg );
-        char[][] matrix = Test.Ciphers.getPlayFairMatrix(key);
+        key = Ciphers.removeSpaces(key);
+        msg = Ciphers.convertToRequiredForm( msg );
+        char[][] matrix = Ciphers.getPlayFairMatrix(key);
 
         System.out.println("Play fair matrix : ");
         for(int i = 0 ; i < 5; ++i ) {
@@ -251,7 +254,7 @@ public class Ciphers {
         int[][] inverse = LinearAlgebraUtil.findCofactorMatrix( key );
         inverse = LinearAlgebraUtil.transpose( inverse );
         int determinant = LinearAlgebraUtil.determinant( key, keySize );
-        int inv = (int)NumberTheoryUtil.moduloInverseExtendedEuclidean( determinant, 26 );
+        int inv = (int) NumberTheoryUtil.moduloInverseExtendedEuclidean( determinant, 26 );
         for ( int i = 0 ; i < keySize ; i++ ) {
             for ( int j = 0 ; j < keySize ; j++ ) {
                 while ( inverse[i][j] < 0 ) inverse[i][j] += 26;
