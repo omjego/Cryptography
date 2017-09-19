@@ -22,12 +22,6 @@ public class RSA {
         long n = p * q;
         long phi = (p - 1) * (q - 1);
         long d = phi - 1;
-        while ( true ) {
-            if ( gcd( phi, d ) == 1 ) {
-                break;
-            }
-        }
-
         //Can't use Fermat's Little theorem for finding inverse as "n" is not prime.
         long e = moduloInverseExtendedEuclidean( d, phi );
         long[] arr = new long[3 + msg.length()];

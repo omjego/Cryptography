@@ -161,5 +161,38 @@ public class NumberTheoryUtil {
         }
     }
 
+    /**
+     * Implementation of Euler's  totient function
+     * @param n : Integer greater than 1
+     * @return
+     */
+    public static long phi(long n) {
+
+        if ( n < 2 ) {
+            throw  new IllegalArgumentException( "N must be greater than 1" );
+        }
+
+        double res = n;
+        for ( long i = 2 ; i*i <= n  ; i++ ) {
+            if ( n % i == 0 ) {
+                res *= (1.0 - 1.0 / i);
+                while ( n % i == 0 ) {
+                    n /= i;
+                }
+            }
+        }
+        return (long) res;
+    }
+
+    /**
+     * Generate random number in range (start, end) inclusive.
+     * @param start
+     * @param end
+     * @return
+     */
+    public static long randomNumber(long start, long end) {
+        return (long)(Math.random()*(end - start)) + start;
+    }
+
 
 }
