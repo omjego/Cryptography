@@ -46,7 +46,7 @@ public class NumberTheoryUtil {
 
     /**
      * Calculates gcd of a and b along with that it also calculate values of x and y in
-     * equation a*x + b*y = gcd(a, b)
+     *  equation a*x + b*y = gcd(a, b)
      * @param a First value
      * @param b Second value
      * @return Returns array of format {gcd, x, y}

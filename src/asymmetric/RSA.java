@@ -51,7 +51,6 @@ public class RSA {
         }
         return plain.toString();
     }
-
     public static void main( String[] args ) {
         String msg = "ABCDEFGH";
         System.out.println("Plaintext : " + msg );
